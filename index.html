@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>atoll</title>
+  <!-- Google's Cast receiver framework (CAF, v3): playback, the sender's
+       controls and the media session come from it. -->
+  <script src="https://www.gstatic.com/cast/sdk/libs/caf_receiver/v3/cast_receiver_framework.js"></script>
+  <style>
+    html, body {
+      margin: 0;
+      height: 100%;
+      background: #10140f;
+    }
+
+    /* The framework's own player shows the episode's cover art, its title
+       and its show, with progress; this only gives it atoll's colours. */
+    cast-media-player {
+      --background-color: #10140f;
+      --progress-color: #8bc34a;
+      --theme-hue: 90;
+      --font-family: "Google Sans", Roboto, Arial, sans-serif;
+    }
+  </style>
+</head>
+<body>
+  <cast-media-player></cast-media-player>
+  <script>
+    // On a TV the player is on screen; on a speaker (audio only) the same
+    // page runs with no screen.
+    cast.framework.CastReceiverContext.getInstance().start();
+  </script>
+</body>
+</html>
